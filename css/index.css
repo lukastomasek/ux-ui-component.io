@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
+
+:root{
+  font-size: 16px;
+  font-family: monospace;
+  --bg-color:#262626;
+  --font_1: 'Dosis', sans-serif;
+  --prp-col : #8D27F2;
+  --green-col: #7ED955;
+  --silv-col:#A6ABAB;
+  --light-blc-col:#262626;
+  --body_col: #595959;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+ul{
+  list-style: none;
+}
+
+body{
+  color: black;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+}
+main{
+  margin-left: 5rem;
+
+}
+body{
+  color: black;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  background-color: var(--body_col);
+}
+h1{
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  text-transform: capitalize;
+  font-family: var(--font_1);
+  color: var(--green-col);
+}
+
+footer{
+  background-color: var(--light-blc-col);
+}
+
+.navbar{
+  width: 5rem;
+  height: 100vh;
+  position: fixed;
+  background-color: var(--bg-color);
+  transition: 200ms ease;
+}
+.nav-items{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.top-nav{
+  margin: 0;
+  background-color: var(--light-blc-col);
+}
+
+.top-links{
+  text-decoration: none;
+  font-family: var(--font_1);
+  font-size: 1.5em;
+  color: var(--silv-col);
+  text-transform: capitalize;
+}
+p{
+  font-family: var(--font_1);
+  font-size: .9em;
+  color: var(--silv-col);
+  text-align: center;
+}
+.top-links:hover{
+  color: var(--green-col);
+}
+
+.top-list{
+  padding: 1.5em;
+  list-style: none;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto ;
+
+}
+
+
+
+.nav-links{
+  display: flex;
+  align-items: center;
+  height: 2em;
+  font-size: 0.8em;
+  filter: opacity(0.7);
+  color: lightslategray;
+  transition: 150ms ease;
+}
+.nav-links:hover{
+ color: lightskyblue;
+
+}
+
+h2{
+  font-family: var(--font_1);
+  color: var(--green-col);
+  font-size: 2em;
+  text-transform: capitalize;
+  text-decoration: underline;
+  margin: 1em;
+}
+.msi-prd{
+ 
+  background-image: url(/img/xmsi-stroke-650x364.png.pagespeed.gp+jp+jw+pj+ws+js+rj+rp+rw+ri+cp+md.ic.PlN8Hw6lEl.png);
+  z-index: 999;
+  background-position: right;
+  text-align: center;
+  padding: 2em;
+  padding-right: 30em;
+  background-repeat: repeat-x;
+  background-size: contain;
+}
+.razer-prd{
+  background-image: url(/img/Laptop-Ultrabook-Gaming-Razer_12-1024x576.jpg);
+  z-index: 999;
+  background-position: right;
+  text-align: center;
+  padding: 2em;
+  padding-right: 30em;
+}
+
+.asus-prd{
+  background-image: url(/img/asus.jpg);
+  z-index: 999;
+  background-position: right;
+  text-align: center;
+  padding: 2em;
+  padding-right: 30em;
+}
+
+.dell-prd{
+  background-image: url(/img/dell-ware.jpg);
+  z-index: 999;
+  background-position: right;
+  text-align: center;
+  padding: 2em;
+  padding-right: 30em;
+}
+
+
+
+.description{
+  box-shadow: 1px 1px 11px white;
+  background-color: var(--bg-color);
+  margin: 1em;
+
+}
+
+.spec-list{
+  margin-top: 2em;
+  list-style: none;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.specs{
+  color: var(--green-col);
+  font-family: var(--font_1);
+  font-size: 1.5em;
+  text-transform: capitalize;
+}
+
+.learn-link{
+  color: white;
+  font-size: 1.5em;
+  font-family: var(--font_1);
+  text-align: right;
+  text-decoration: none;
+}
+
+.learn-link:hover{
+  color: var(--green-col);
+  text-decoration: underline;
+}
+.specs-img{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  list-style: none;
+}
+.spec-img{
+  width: 15%;
+  padding-right: 5em;
+  margin-top: 1em;
+}
+.shop{
+  list-style: none;
+}
+
+.parent-footer{
+  padding-left: 25%;
+  display: grid;
+  grid-template-columns: .2fr .2fr .2fr .2fr;
+}
+.shop-li-h{
+  color: white;
+  font-size: 1.1em;
+  font-family: var(--font_1);
+  padding-left: 1em;
+}
+.shop-li{
+  text-decoration: none;
+  font-size: .9em;
+  font-family: var(--font_1);
+  color: var(--silv-col);
+}
+
+.shop-li:hover{
+  color: var(--green-col);
+  text-decoration: underline;
+}
+
+.so-li-h{
+  color: white;
+  font-size: 1.1em;
+  font-family: var(--font_1);
+}
+
+.so-li{
+  text-decoration: none;
+  font-size: .9em;
+  font-family: var(--font_1);
+  color: var(--silv-col)
+}
+.so-li:hover{
+  color: var(--green-col);
+  text-decoration: underline;
+}
+
+.su-li-h{
+  font-size: 1.1em;
+  font-family: var(--font_1);
+  color: white;
+  text-transform: capitalize;
+}
+
+.su-li{
+  text-decoration: none;
+  font-size: .9em;
+  font-family: var(--font_1);
+  color: var(--silv-col)
+}
+
+.su-li:hover{
+  color: var(--green-col);
+  text-decoration: underline;
+}
+
+.m-li-h{
+  font-size: 1.1em;
+  font-family: var(--font_1);
+  color: white;
+  text-transform: capitalize;
+}
+.copyright{
+  padding-top: 1em;
+  text-align: center;
+  font-size: 1.5em;
+  font-family: var(--font_1);
+  color: white;
+  text-transform: capitalize;
+}
+@media only screen and(max-width:600px){
+
+.navbar{
+  bottom: 0;
+  width: 100vw;
+  height: 5rem;
+}
+
+
+
+.nav-items{
+  justify-content: center;
+}
+
+main{
+ margin: 0;
+}
+
+}
+
+
+@media only screen and(min-width:600px){
+  .navbar{
+    top:0;
+    width: 5rem;
+    height: 100vh;
+  }
+
+  .navbar:hover{
+    width: 16rem;
+  }
+
+
+  .navbar:hover .nav-links{
+    display: block;
+    font-size: larger;
+    text-align: center;
+  }
+}
