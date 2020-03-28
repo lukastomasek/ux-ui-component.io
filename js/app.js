@@ -1,16 +1,17 @@
 let nav;
 let ul;
-let li = [];
+let $li = [];
 let progressBar;
 let innerBar;
 let headingsBar;
 let innerHBar;
 let gizmoTxt;
-var _allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
-
-
+let loadingGif;
+let _allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
+// scroll in view{behaviour:smooth}
 //#region  Functions
- function addGizmo(){
+ function addTableOfContents(){
+
    nav = document.createElement('div');
    nav.setAttribute('class','navbar');
    document.body.appendChild(nav);
@@ -18,14 +19,19 @@ var _allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
    ul.setAttribute('class','nav-items');
    nav.appendChild(ul);
    gizmoTxt = document.createElement('p');
-   gizmoTxt.innerHTML = "Gizmo";
-   nav.prepend(gizmoTxt,);
+   gizmoTxt.innerHTML = "TABLE OF CONTENTS";
+   nav.prepend(gizmoTxt);
+   loadingGif = document.createElement('div');
+   loadingGif.innerHTML = `<img class =loading src="/img/Spinner-1s-200px.gif" alt="loading gif">`;
+ 
+   nav.appendChild(loadingGif);
    for(let i = 0; i < _allHeadings.length; i++){
-     li[i] = document.createElement('li');
-     li[i].setAttribute('class','nav-links');
-     li[i].innerText += `${_allHeadings[i].innerText}`;
-     ul.appendChild(li[i]);   
-     li[i].style.fontSize = "0.5em"; 
+     $li[i] = document.createElement('li');
+     $li[i].setAttribute('class','nav-links');
+     
+     $li[i].innerText += `${_allHeadings[i].innerText}`;
+     ul.appendChild($li[i]);   
+     $li[i].style.fontSize = "0.5em"; 
    }
 
    progressBar =document.createElement('div');
@@ -72,8 +78,8 @@ var _allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
  function hover(){
    nav.style.width = '16rem';
    progressBar.style.width = '15.5rem';
-   for(let i = 0; i < li.length; i++){
-     li[i].style.fontSize = '1em';
+   for(let i = 0; i < $li.length; i++){
+     $li[i].style.fontSize = '1em';
    }
    document.body.style.cursor =  'pointer';
   }
@@ -81,21 +87,20 @@ var _allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
  function unHover(){
    progressBar.style.width = '4.5rem';
    nav.style.width = '5rem';
-   for(let i = 0; i < li.length; i++){
-    li[i].style.fontSize = '.5em';  
+   for(let i = 0; i < $li.length; i++){
+   $li[i].style.fontSize = '.5em';  
   }
 
   document.body.style.cursor = 'initial;'
   }
 
+ addTableOfContents();
 
-
- addGizmo(); 
  addStyling();
 
   //#endregion
 
-//#region  Events
+
 document.querySelector('.navbar').addEventListener('mouseover', hover);
 document.querySelector('.navbar').addEventListener('mouseleave', unHover);
 
@@ -108,17 +113,44 @@ window.addEventListener('scroll', event =>{
 
    let result = (scrollY/canBeScrolled) * 100;
    result = Math.floor(result);
+   checkHViewPort();
 
+   let $ele  = document.querySelector('.loading');
+     
+   if(result >= 80){
+    $ele.style.display = 'block'
+    document.querySelector('.body').innerHTML += 
+    document.querySelector('.products').innerHTML;
 
+  }
+  
+
+ 
     innerBar.style.width = result + "%";
-    innerBar.innerText = `${result} %`;
     innerBar.style.textAlign = 'center';
     innerBar.style.fontSize = '0.8em';
     innerBar.style.color = 'white';
-    if(result <= 12){
-      innerBar.innerText = "";
-    }
+
 })
 
-//#endregion
+function checkHViewPort(){
+
+  $li.forEach($H =>{
+    let seen = false
+
+    if(scrollY >= $H.offsetTop &&$H.offsetTop +  $H.scrollHeight){
+        seen = true
+    }
+    else{
+     seen = false
+    }
+
+    if(seen){
+      $H.style.color = 'lightskyblue'
+    }
+    else if(!seen){
+      $H.style.color = 'lightslategray'
+    }
+    
+  })}
 
