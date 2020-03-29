@@ -6,8 +6,10 @@ let innerBar;
 let headingsBar;
 let innerHBar;
 let gizmoTxt;
-let loadingGif;
-let _allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
+let $loadingGif;
+let loadingTxt;
+let loadedNewContent = false;
+let $allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
 // scroll in view{behaviour:smooth}
 //#region  Functions
  function addTableOfContents(){
@@ -16,20 +18,24 @@ let _allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
    nav.setAttribute('class','navbar');
    document.body.appendChild(nav);
    ul = document.createElement('ul');
+   loadingTxt = document.createElement('p');
+   loadingTxt.setAttribute('class', 'loading-text')
+   loadingTxt.innerHTML = "LOADING CONTENT"
    ul.setAttribute('class','nav-items');
    nav.appendChild(ul);
    gizmoTxt = document.createElement('p');
    gizmoTxt.innerHTML = "TABLE OF CONTENTS";
    nav.prepend(gizmoTxt);
-   loadingGif = document.createElement('div');
-   loadingGif.innerHTML = `<img class =loading src="/img/Spinner-1s-200px.gif" alt="loading gif">`;
- 
-   nav.appendChild(loadingGif);
-   for(let i = 0; i < _allHeadings.length; i++){
+   $loadingGif = document.createElement('div');
+   $loadingGif.innerHTML =
+    `<img class =loading src="img/Spinner-1s-200px.gif" alt="loading gif">`;
+
+   nav.appendChild($loadingGif);
+   nav.appendChild(loadingTxt)
+   for(let i = 0; i < $allHeadings.length; i++){
      $li[i] = document.createElement('li');
      $li[i].setAttribute('class','nav-links');
-     
-     $li[i].innerText += `${_allHeadings[i].innerText}`;
+     $li[i].innerText += `${$allHeadings[i].innerText}`;
      ul.appendChild($li[i]);   
      $li[i].style.fontSize = "0.5em"; 
    }
@@ -78,6 +84,8 @@ let _allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
  function hover(){
    nav.style.width = '16rem';
    progressBar.style.width = '15.5rem';
+   $loadingGif.style.paddingLeft = '1em';
+   $loadingGif.style.transition = '100'+'ease';
    for(let i = 0; i < $li.length; i++){
      $li[i].style.fontSize = '1em';
    }
@@ -87,11 +95,13 @@ let _allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
  function unHover(){
    progressBar.style.width = '4.5rem';
    nav.style.width = '5rem';
+   $loadingGif.style.paddingLeft = '0em';
+
    for(let i = 0; i < $li.length; i++){
    $li[i].style.fontSize = '.5em';  
   }
 
-  document.body.style.cursor = 'initial;'
+  document.body.style.cursor = 'cursor;'
   }
 
  addTableOfContents();
@@ -115,21 +125,37 @@ window.addEventListener('scroll', event =>{
    result = Math.floor(result);
    checkHViewPort();
 
-   let $ele  = document.querySelector('.loading');
-     
-   if(result >= 80){
-    $ele.style.display = 'block'
+   let $loadGif  = document.querySelector('.loading');
+   let $loadTxt = document.querySelector('.loading-text'); 
+  
+  
+   if(result >= 70){
+    $loadGif.style.display = 'block'
+    $loadTxt.style.display = 'block'
+   
+  }
+  else{
+    $loadGif.style.display = 'none'
+    $loadTxt.style.display = 'none'
+  }
+
+  if(result >= 90){
     document.querySelector('.body').innerHTML += 
     document.querySelector('.products').innerHTML;
-
+    loadedNewContent = true;
   }
   
+  if(loadedNewContent){
+    let updateBar= 0;
+    innerBar.style.width = "0" + "%";
+    loadedNewContent = false;
 
- 
+  }
+
+  if(!loadedNewContent)
     innerBar.style.width = result + "%";
-    innerBar.style.textAlign = 'center';
-    innerBar.style.fontSize = '0.8em';
-    innerBar.style.color = 'white';
+
+   innerBar.style.color = 'white';
 
 })
 
@@ -138,7 +164,7 @@ function checkHViewPort(){
   $li.forEach($H =>{
     let seen = false
 
-    if(scrollY >= $H.offsetTop &&$H.offsetTop +  $H.scrollHeight){
+    if(scrollY >= $H.offsetTop && $H.offsetTop +  $H.scrollHeight){
         seen = true
     }
     else{

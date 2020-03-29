@@ -57,6 +57,7 @@ footer{
   position: fixed;
   background-color: var(--bg-color);
   transition: 200ms ease;
+  
 }
 .nav-items{
   list-style: none;
@@ -164,6 +165,13 @@ h2{
   display: none;
   width: 75%;
   padding-left: 12px;
+}
+
+.loading-text{
+  font-family: var(--font_1);
+  font-size: .9em;
+  color: white;
+  display: none;
 }
 
 .description{
@@ -316,7 +324,7 @@ main{
   }
 
   .navbar:hover{
-    width: 16rem;
+    transform: translate3d(100%,0,0);
   }
 
 
