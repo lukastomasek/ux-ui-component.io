@@ -294,6 +294,10 @@ h2{
   color: white;
   text-transform: capitalize;
 }
+.table-of-contents{
+  font-family: var(--font_1);
+  font-size: 1.1em;
+}
 
 @media only screen and(max-width:600px){
 

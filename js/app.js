@@ -19,11 +19,12 @@ let $allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
    document.body.appendChild(nav);
    ul = document.createElement('ul');
    loadingTxt = document.createElement('p');
-   loadingTxt.setAttribute('class', 'loading-text')
-   loadingTxt.innerHTML = "LOADING CONTENT"
+   loadingTxt.setAttribute('class', 'loading-text');
+   loadingTxt.innerHTML = "LOADING CONTENT";
    ul.setAttribute('class','nav-items');
    nav.appendChild(ul);
    gizmoTxt = document.createElement('p');
+   gizmoTxt.setAttribute('class','table-of-contents');
    gizmoTxt.innerHTML = "TABLE OF CONTENTS";
    nav.prepend(gizmoTxt);
    $loadingGif = document.createElement('div');
@@ -46,10 +47,6 @@ let $allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
    innerBar = document.createElement('div');
    innerBar.setAttribute('class','myBar');
    progressBar.appendChild(innerBar);
-   
-
-  //nav.insertAdjacentHTML("beforeend",content);
-
  }
 
  function addStyling(){ 
@@ -123,24 +120,24 @@ window.addEventListener('scroll', event =>{
 
    let result = (scrollY/canBeScrolled) * 100;
    result = Math.floor(result);
-   checkHViewPort();
-
+   //checkHeightOfViewPort();
+    
    let $loadGif  = document.querySelector('.loading');
    let $loadTxt = document.querySelector('.loading-text'); 
   
   
    if(result >= 70){
-    $loadGif.style.display = 'block'
-    $loadTxt.style.display = 'block'
+    $loadGif.style.display = 'block';
+    $loadTxt.style.display = 'block';
    
   }
   else{
-    $loadGif.style.display = 'none'
-    $loadTxt.style.display = 'none'
+    $loadGif.style.display = 'none';
+    $loadTxt.style.display = 'none';
   }
 
   if(result >= 90){
-    document.querySelector('.body').innerHTML += 
+    document.querySelector('.products').innerHTML += 
     document.querySelector('.products').innerHTML;
     loadedNewContent = true;
   }
@@ -157,26 +154,46 @@ window.addEventListener('scroll', event =>{
 
    innerBar.style.color = 'white';
 
+    checkHeightOfViewPort();
 })
 
-function checkHViewPort(){
+function checkHeightOfViewPort(){
+
+  let y = window.scrollY;
 
   $li.forEach($H =>{
     let seen = false
 
-    if(scrollY >= $H.offsetTop && $H.offsetTop +  $H.scrollHeight){
-        seen = true
+    if(y >= $H.offsetTop && $H.offsetTop +  $H.scrollHeight){
+        seen = true;
     }
     else{
-     seen = false
+     seen = false;
     }
 
     if(seen){
-      $H.style.color = 'lightskyblue'
+      $H.style.color = 'lightskyblue';
     }
     else if(!seen){
-      $H.style.color = 'lightslategray'
+      $H.style.color = 'lightslategray';
     }
     
   })}
+
+
+  function isElementInViewport(el) {
+
+    var rect
+    el.forEach($l =>{
+       rect = $l.getBoundingClientRect();
+    });
+   
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document. documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document. documentElement.clientWidth)
+    );
+  }
+  
 
