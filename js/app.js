@@ -1,3 +1,4 @@
+//#region  Refs
 let nav;
 let ul;
 let $li = [];
@@ -5,12 +6,17 @@ let progressBar;
 let innerBar;
 let headingsBar;
 let innerHBar;
-let gizmoTxt;
+let headerTxt;
 let $loadingGif;
 let loadingTxt;
 let loadedNewContent = false;
 let $allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
+let $loadingImg_1 = 'img/rolling.svg';
+let $loadingImg_2 = 'img/ellipsis.svg';
+//#endregion
+
 // scroll in view{behaviour:smooth}
+
 //#region  Functions
  function addTableOfContents(){
 
@@ -23,13 +29,13 @@ let $allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
    loadingTxt.innerHTML = "LOADING CONTENT";
    ul.setAttribute('class','nav-items');
    nav.appendChild(ul);
-   gizmoTxt = document.createElement('p');
-   gizmoTxt.setAttribute('class','table-of-contents');
-   gizmoTxt.innerHTML = "TABLE OF CONTENTS";
-   nav.prepend(gizmoTxt);
+   headerTxt = document.createElement('p');
+   headerTxt.setAttribute('class','table-of-contents');
+   headerTxt.innerHTML = "TABLE OF CONTENTS";
+   nav.prepend(headerTxt);
    $loadingGif = document.createElement('div');
    $loadingGif.innerHTML =
-    `<img class =loading src="img/Spinner-1s-200px.gif" alt="loading gif">`;
+    `<img class =loading src= ${$loadingImg_2} alt="loading gif">`;
 
    nav.appendChild($loadingGif);
    nav.appendChild(loadingTxt)
@@ -52,7 +58,8 @@ let $allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
  function addStyling(){ 
    nav = document.querySelector('.navbar');
    progressBar = document.querySelector('.myProgress');
-  innerBar =document.querySelector('.myBar');
+   innerBar =document.querySelector('.myBar');
+   headerTxt = document.querySelector('.table-of-contents');
 
    nav.style.top = '0';
    nav.style.width = "5rem";
@@ -76,29 +83,34 @@ let $allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
    innerBar.style.backgroundColor = 'lightgreen';
    innerBar.style.transition = "200" +"ease";
 
+   headerTxt.style.fontSize = '0.7em';
+
  }
 
  function hover(){
+  $li.forEach($item=>{
+    $item.style.fontSize = '1em';
+ });
    nav.style.width = '16rem';
    progressBar.style.width = '15.5rem';
    $loadingGif.style.paddingLeft = '1em';
+   headerTxt.style.fontSize = '1.5em';
    $loadingGif.style.transition = '100'+'ease';
-   for(let i = 0; i < $li.length; i++){
-     $li[i].style.fontSize = '1em';
-   }
    document.body.style.cursor =  'pointer';
+
   }
 
+
  function unHover(){
+   $li.forEach($item =>{
+    $item.style.fontSize = '0.5em';
+   });
    progressBar.style.width = '4.5rem';
    nav.style.width = '5rem';
    $loadingGif.style.paddingLeft = '0em';
-
-   for(let i = 0; i < $li.length; i++){
-   $li[i].style.fontSize = '.5em';  
-  }
-
-  document.body.style.cursor = 'cursor;'
+   headerTxt.style.fontSize = '0.7em';
+  
+  document.body.style.cursor = 'cursor';
   }
 
  addTableOfContents();
