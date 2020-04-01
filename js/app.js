@@ -178,7 +178,7 @@ function checkHeightOfViewPort(){
       $H.style.color = 'lightslategray';
     }
     
-  })}
+  })};
 
 
   function isElementInViewport(el) {

@@ -125,7 +125,7 @@ h2{
 }
 .msi-prd{
  
-  background-image: url(/img/xmsi-stroke-650x364.png.pagespeed.gp+jp+jw+pj+ws+js+rj+rp+rw+ri+cp+md.ic.PlN8Hw6lEl.png);
+  background-image: url(img/xmsi-stroke-650x364.png.pagespeed.gp+jp+jw+pj+ws+js+rj+rp+rw+ri+cp+md.ic.PlN8Hw6lEl.png);
   z-index: 999;
   background-position: right;
   text-align: center;
@@ -135,7 +135,7 @@ h2{
   background-size: contain;
 }
 .razer-prd{
-  background-image: url(/img/Laptop-Ultrabook-Gaming-Razer_12-1024x576.jpg);
+  background-image: url(img/Laptop-Ultrabook-Gaming-Razer_12-1024x576.jpg);
   z-index: 999;
   background-position: right;
   text-align: center;
@@ -144,7 +144,7 @@ h2{
 }
 
 .asus-prd{
-  background-image: url(/img/asus.jpg);
+  background-image: url(img/asus.jpg);
   z-index: 999;
   background-position: right;
   text-align: center;
@@ -153,7 +153,7 @@ h2{
 }
 
 .dell-prd{
-  background-image: url(/img/dell-ware.jpg);
+  background-image: url(img/dell-ware.jpg);
   z-index: 999;
   background-position: right;
   text-align: center;
