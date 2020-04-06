@@ -1,44 +1,47 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');
 
-:root{
+:root {
   font-size: 16px;
   font-family: monospace;
-  --bg-color:#262626;
+  --bg-color: #262626;
   --font_1: 'Dosis', sans-serif;
-  --prp-col : #8D27F2;
+  --prp-col: #8D27F2;
   --green-col: #7ED955;
-  --silv-col:#A6ABAB;
-  --light-blc-col:#262626;
+  --silv-col: #A6ABAB;
+  --light-blc-col: #262626;
   --body_col: #595959;
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
-body{
+body {
   color: black;
   background-color: white;
   padding: 0;
   margin: 0;
 }
-main{
+
+main {
   margin-left: 5rem;
 
 }
-body{
+
+body {
   color: black;
   background-color: white;
   padding: 0;
   margin: 0;
   background-color: var(--body_col);
 }
-h1{
+
+h1 {
   text-align: center;
   padding: 0;
   margin: 0;
@@ -47,19 +50,20 @@ h1{
   color: var(--green-col);
 }
 
-footer{
+footer {
   background-color: var(--light-blc-col);
 }
 
-.navbar{
+.navbar {
   width: 5rem;
   height: 100vh;
   position: fixed;
   background-color: var(--bg-color);
   transition: 200ms ease;
-  
+
 }
-.nav-items{
+
+.nav-items {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -67,33 +71,36 @@ footer{
   flex-direction: column;
   align-items: center;
 }
-.top-nav{
+
+.top-nav {
   margin: 0;
   background-color: var(--light-blc-col);
 }
 
-.top-links{
+.top-links {
   text-decoration: none;
   font-family: var(--font_1);
   font-size: 1.5em;
   color: var(--silv-col);
   text-transform: capitalize;
 }
-p{
+
+p {
   font-family: var(--font_1);
   font-size: .9em;
   color: var(--silv-col);
   text-align: center;
 }
-.top-links:hover{
+
+.top-links:hover {
   color: var(--green-col);
 }
 
-.top-list{
+.top-list {
   padding: 1.5em;
   list-style: none;
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto ;
+  grid-template-columns: auto auto auto auto auto auto;
 
 }
 
@@ -106,8 +113,9 @@ p{
   color: lightslategray;
   transition: 150ms ease;
 }
-.nav-links:hover{
- color: lightskyblue;
+
+.nav-links:hover {
+  color: lightskyblue;
 
 }
 
@@ -115,7 +123,7 @@ p{
   color: green;
 }
 
-h2{
+h2 {
   font-family: var(--font_1);
   color: var(--green-col);
   font-size: 2em;
@@ -123,8 +131,9 @@ h2{
   text-decoration: underline;
   margin: 1em;
 }
-.msi-prd{
- 
+
+.msi-prd {
+
   background-image: url("../img/xmsi-stroke-650x364.png.pagespeed.gp+jp+jw+pj+ws+js+rj+rp+rw+ri+cp+md.ic.PlN8Hw6lEl.png");
   z-index: 999;
   background-position: right;
@@ -134,7 +143,8 @@ h2{
   background-repeat: repeat-x;
   background-size: contain;
 }
-.razer-prd{
+
+.razer-prd {
   background-image: url("../img/Laptop-Ultrabook-Gaming-Razer_12-1024x576.jpg");
   z-index: 999;
   background-position: right;
@@ -143,7 +153,7 @@ h2{
   padding-right: 30em;
 }
 
-.asus-prd{
+.asus-prd {
   background-image: url("../img/asus.jpg");
   z-index: 999;
   background-position: right;
@@ -152,7 +162,7 @@ h2{
   padding-right: 30em;
 }
 
-.dell-prd{
+.dell-prd {
   background-image: url('../img/dell-ware.jpg');
   z-index: 999;
   background-position: right;
@@ -168,35 +178,35 @@ h2{
   opacity: 0.5;
 }
 
-.loading-text{
+.loading-text {
   font-family: var(--font_1);
   font-size: .9em;
   color: white;
   display: none;
 }
 
-.description{
+.description {
   box-shadow: 1px 1px 11px white;
   background-color: var(--bg-color);
   margin: 1em;
 
 }
 
-.spec-list{
+.spec-list {
   margin-top: 2em;
   list-style: none;
   display: grid;
   grid-template-columns: auto auto auto;
 }
 
-.specs{
+.specs {
   color: var(--green-col);
   font-family: var(--font_1);
   font-size: 1.5em;
   text-transform: capitalize;
 }
 
-.learn-link{
+.learn-link {
   color: white;
   font-size: 1.5em;
   font-family: var(--font_1);
@@ -204,90 +214,97 @@ h2{
   text-decoration: none;
 }
 
-.learn-link:hover{
+.learn-link:hover {
   color: var(--green-col);
   text-decoration: underline;
 }
-.specs-img{
+
+.specs-img {
   display: grid;
   grid-template-columns: auto auto auto;
   list-style: none;
 }
-.spec-img{
+
+.spec-img {
   width: 15%;
   padding-right: 5em;
   margin-top: 1em;
 }
-.shop{
+
+.shop {
   list-style: none;
 }
 
-.parent-footer{
+.parent-footer {
   padding-left: 25%;
   display: grid;
   grid-template-columns: .2fr .2fr .2fr .2fr;
 }
-.shop-li-h{
+
+.shop-li-h {
   color: white;
   font-size: 1.1em;
   font-family: var(--font_1);
   padding-left: 1em;
 }
-.shop-li{
+
+.shop-li {
   text-decoration: none;
   font-size: .9em;
   font-family: var(--font_1);
   color: var(--silv-col);
 }
 
-.shop-li:hover{
+.shop-li:hover {
   color: var(--green-col);
   text-decoration: underline;
 }
 
-.so-li-h{
+.so-li-h {
   color: white;
   font-size: 1.1em;
   font-family: var(--font_1);
 }
 
-.so-li{
-  text-decoration: none;
-  font-size: .9em;
-  font-family: var(--font_1);
-  color: var(--silv-col)
-}
-.so-li:hover{
-  color: var(--green-col);
-  text-decoration: underline;
-}
-
-.su-li-h{
-  font-size: 1.1em;
-  font-family: var(--font_1);
-  color: white;
-  text-transform: capitalize;
-}
-
-.su-li{
+.so-li {
   text-decoration: none;
   font-size: .9em;
   font-family: var(--font_1);
   color: var(--silv-col)
 }
 
-.su-li:hover{
+.so-li:hover {
   color: var(--green-col);
   text-decoration: underline;
 }
 
-.m-li-h{
+.su-li-h {
   font-size: 1.1em;
   font-family: var(--font_1);
   color: white;
   text-transform: capitalize;
 }
-.copyright{
+
+.su-li {
+  text-decoration: none;
+  font-size: .9em;
+  font-family: var(--font_1);
+  color: var(--silv-col)
+}
+
+.su-li:hover {
+  color: var(--green-col);
+  text-decoration: underline;
+}
+
+.m-li-h {
+  font-size: 1.1em;
+  font-family: var(--font_1);
+  color: white;
+  text-transform: capitalize;
+}
+
+.copyright {
   padding-top: 1em;
   text-align: center;
   font-size: 1.5em;
@@ -295,45 +312,46 @@ h2{
   color: white;
   text-transform: capitalize;
 }
-.table-of-contents{
+
+.table-of-contents {
   font-family: var(--font_1);
   font-size: 1.1em;
 }
 
-@media only screen and(max-width:600px){
+@media only screen and(max-width:600px) {
 
-.navbar{
-  bottom: 0;
-  width: 100vw;
-  height: 5rem;
+  .navbar {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+  }
+
+
+
+  .nav-items {
+    justify-content: center;
+  }
+
+  main {
+    margin: 0;
+  }
+
 }
 
 
-
-.nav-items{
-  justify-content: center;
-}
-
-main{
- margin: 0;
-}
-
-}
-
-
-@media only screen and(min-width:600px){
-  .navbar{
-    top:0;
+@media only screen and(min-width:600px) {
+  .navbar {
+    top: 0;
     width: 5rem;
     height: 100vh;
   }
 
-  .navbar:hover{
-    transform: translate3d(100%,0,0);
+  .navbar:hover {
+    transform: translate3d(100%, 0, 0);
   }
 
 
-  .navbar:hover .nav-links{
+  .navbar:hover .nav-links {
     display: block;
     font-size: larger;
     text-align: center;
