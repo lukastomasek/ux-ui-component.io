@@ -10,6 +10,7 @@
   --silv-col: #A6ABAB;
   --light-blc-col: #262626;
   --body_col: #595959;
+  --anim-timer: 2.5s;
 }
 
 * {
@@ -54,6 +55,30 @@ footer {
   background-color: var(--light-blc-col);
 }
 
+.title {
+  animation: Transition 4s ease;
+}
+
+@keyframes Transition {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .navbar {
   width: 5rem;
   height: 100vh;
@@ -83,7 +108,9 @@ footer {
   font-size: 1.5em;
   color: var(--silv-col);
   text-transform: capitalize;
+  animation: Transition 2s ease;
 }
+
 
 p {
   font-family: var(--font_1);
@@ -206,6 +233,22 @@ h2 {
   text-transform: capitalize;
 }
 
+.asus-power,
+.asus-clock,
+.asus-per {
+  color: var(--green-col);
+  font-family: var(--font_1);
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.asus-power:hover,
+.asus-clock:hover,
+.asus-per:hover {
+  text-decoration: underline;
+  color: white;
+}
+
 .learn-link {
   color: white;
   font-size: 1.5em;
@@ -318,42 +361,37 @@ h2 {
   font-size: 1.1em;
 }
 
-@media only screen and(max-width:600px) {
 
-  .navbar {
-    bottom: 0;
-    width: 100vw;
-    height: 5rem;
+/*
+hidden class
+*/
+
+.asus-des {
+  animation: Opacity 4s ease-in-out;
+}
+
+.asus-core,
+.asus-overclock,
+.asus-performance {
+  display: none;
+  font-family: var(--font_1);
+  font-size: .9em;
+  color: var(--silv-col);
+  text-align: center;
+  animation: Opacity var(--anim-timer) ease-in-out;
+}
+
+@keyframes Opacity {
+
+  from {
+    opacity: 0;
   }
 
-
-
-  .nav-items {
-    justify-content: center;
+  to {
+    opacity: 100;
   }
-
-  main {
-    margin: 0;
-  }
-
 }
 
 
-@media only screen and(min-width:600px) {
-  .navbar {
-    top: 0;
-    width: 5rem;
-    height: 100vh;
-  }
 
-  .navbar:hover {
-    transform: translate3d(100%, 0, 0);
-  }
-
-
-  .navbar:hover .nav-links {
-    display: block;
-    font-size: larger;
-    text-align: center;
-  }
-}
+@media only screen and(max-width:600px) {}
