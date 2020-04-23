@@ -14,18 +14,52 @@ let $allHeadings = document.querySelectorAll('h1 ,h2,h3,h4,h5,h6');
 let $loadingImg_1 = 'img/rolling.svg';
 let $loadingImg_2 = 'img/ellipsis.svg';
 let $titles = document.getElementsByClassName('titles');
+let $selectorImg = 'img/circle.svg';
 
+let isSelected = false;
+//#region  Asus selectors
 let $asusPower = document.querySelector('.asus-power');
 let $asusClock = document.querySelector('.asus-clock');
-let $asusPer = document.querySelector('.asus-per')
+let $asusPer = document.querySelector('.asus-per');
 
-let $asusCoreDes = document.querySelector('.asus-core')
-let $asusOverview = document.querySelector('.asus-des')
-let $asusOverDesc = document.querySelector('.asus-overclock')
-let $asusPerDesc = document.querySelector('.asus-performance')
-let inlineStr = 'inline'
-let noneStr = 'none'
+let $asusCoreDes = document.querySelector('.asus-core');
+let $asusOverview = document.querySelector('.asus-des');
+let $asusOverDesc = document.querySelector('.asus-overclock');
+let $asusPerDesc = document.querySelector('.asus-performance');
+//#endregion
 
+//#region  Razer Selectors
+let $razerOverview = document.querySelector('.raze-des');
+let $razerPower = document.querySelector('.razer-power');
+let $razerClock = document.querySelector('.razer-clock');
+let $razerPer = document.querySelector('.razer-per');
+let $razerCoreDes = document.querySelector('.razer-core');
+let $razerOverDes = document.querySelector('.razer-overclock');
+let $razerPerDes = document.querySelector('.razer-performance');
+//#endregion
+
+//#region  MSI Selectors
+let $msiPower = document.querySelector('.msi-power');
+let $msiClock = document.querySelector('.msi-clock');
+let $msiPer = document.querySelector('.msi-per');
+let $msiOverview = document.querySelector('.msi-des');
+let $msiOverDes = document.querySelector('.msi-overclock');
+let $msiCoreDes = document.querySelector('.msi-core');
+let $msiPerDes = document.querySelector('.msi-performance');
+//#endregion
+
+//#region  Dell Selectors
+let $dellPower = document.querySelector('.dell-power');
+let $dellClock = document.querySelector('.dell-clock');
+let $dellPer = document.querySelector('.dell-per');
+let $dellOverview = document.querySelector('.dell-des');
+let $dellCoreDes = document.querySelector('.dell-core');
+let $dellOverDSes = document.querySelector('.dell-overclock');
+let $dellPerDes = document.querySelector('.dell-performance');
+//#endregion
+
+let inlineStr = 'inline';
+let noneStr = 'none';
 
 //#endregion
 
@@ -49,10 +83,8 @@ function addTableOfContents() {
   $loadingGif = document.createElement('div');
   $loadingGif.innerHTML = `<img class =loading src= ${$loadingImg_2} alt="loading gif">`;
 
-
   nav.appendChild($loadingGif);
   nav.appendChild(loadingTxt);
-
 
   for (let i = 0; i < $allHeadings.length; i++) {
     $li[i] = document.createElement('li');
@@ -60,8 +92,6 @@ function addTableOfContents() {
     $li[i].innerText += `${$allHeadings[i].innerText}`;
     ul.appendChild($li[i]);
     $li[i].style.fontSize = '0.5em';
-
-
   }
 
   progressBar = document.createElement('div');
@@ -99,7 +129,6 @@ function addStyling() {
   innerBar.style.height = '20px';
   innerBar.style.backgroundColor = 'lightgreen';
   innerBar.style.transition = '200' + 'ease';
-
 
   headerTxt.style.fontSize = '0.7em';
 }
@@ -147,8 +176,6 @@ window.addEventListener('scroll', (event) => {
   result = Math.floor(result);
   //checkHeightOfViewPort();
 
-
-
   let $loadGif = document.querySelector('.loading');
   let $loadTxt = document.querySelector('.loading-text');
 
@@ -180,51 +207,115 @@ window.addEventListener('scroll', (event) => {
   checkHeightOfViewPort();
 });
 
-
 function checkHeightOfViewPort() {
+  if (loadedNewContent) return;
+
   for (let i = 0; i < $titles.length; i++) {
     let bounding = $titles[i].getBoundingClientRect();
-
     if (bounding.top < 0) {
-      $li[i].style.color = 'lightskyblue'
+      $li[i].style.color = 'lightskyblue';
+      $li[i].style.textDecoration = 'underline';
     } else if (bounding.top > 0) {
       $li[i].style.color = 'lightslategray';
+      $li[i].style.textDecoration = 'none';
     }
   }
 }
 
-
 //#region EVENTS
 $asusPower.addEventListener('mouseover', function () {
-
   if ($asusOverDesc.style.display == inlineStr) {
-    $asusOverDesc.style.display = noneStr
+    $asusOverDesc.style.display = noneStr;
   }
-  $asusCoreDes.style.display = inlineStr
-  $asusOverview.style.display = noneStr
-
-})
-
-
+  $asusCoreDes.style.display = inlineStr;
+  $asusOverview.style.display = noneStr;
+});
 
 $asusClock.addEventListener('mouseover', function () {
-
   if ($asusPerDesc.style.display == inlineStr) {
-    $asusPerDesc.style.display = noneStr
+    $asusPerDesc.style.display = noneStr;
   }
-  $asusCoreDes.style.display = noneStr
-  $asusOverDesc.style.display = inlineStr
-
-})
+  $asusCoreDes.style.display = noneStr;
+  $asusOverDesc.style.display = inlineStr;
+});
 
 $asusPer.addEventListener('mouseover', function () {
-
   $asusOverDesc.style.display = noneStr;
   $asusPerDesc.style.display = inlineStr;
-})
+});
 
+$razerClock.addEventListener('mouseover', function () {
+  if (
+    $razerCoreDes.style.display == inlineStr ||
+    $razerPerDes.style.display == inlineStr
+  ) {
+    $razerCoreDes.style.display = noneStr;
+    $razerPerDes.style.display = noneStr;
+  }
+  $razerOverview.style.display = noneStr;
+  $razerOverDes.style.display = inlineStr;
+});
+
+$razerPower.addEventListener('mouseover', function () {
+  $razerOverview.style.display = noneStr;
+  $razerOverDes.style.display = noneStr;
+  $razerPerDes.style.display = noneStr;
+  $razerOverview.style.display = noneStr;
+  $razerCoreDes.style.display = inlineStr;
+});
+
+$razerPer.addEventListener('mouseover', function () {
+  $razerOverview.style.display = noneStr;
+  $razerOverDes.style.display = noneStr;
+  $razerCoreDes.style.display = noneStr;
+  $razerPerDes.style.display = inlineStr;
+});
+
+$msiPower.addEventListener('mouseover', function () {
+  //$msiOverview.style.display = noneStr;
+  $msiOverDes.style.display = noneStr;
+  $msiPerDes.style.display = noneStr;
+
+  $msiOverview.style.display = inlineStr;
+});
+
+$msiClock.addEventListener('mouseover', function () {
+  $msiOverview.style.display = noneStr;
+  $msiPerDes.style.display = noneStr;
+  $msiCoreDes.style.display = noneStr;
+
+  $msiOverDes.style.display = inlineStr;
+});
+
+$msiPer.addEventListener('mouseover', function () {
+  $msiOverview.style.display = noneStr;
+  $msiCoreDes.style.display = noneStr;
+  $msiOverDes.style.display = noneStr;
+
+  $msiPerDes.style.display = inlineStr;
+});
+
+$dellPower.addEventListener('mouseover', function () {
+  $dellOverview.style.display = noneStr;
+  $dellPerDes.style.display = noneStr;
+  $dellOverDSes.style.display = noneStr;
+
+  $dellCoreDes.style.display = inlineStr;
+});
+
+$dellClock.addEventListener('mouseover', function () {
+  $dellOverview.style.display = noneStr;
+  $dellPerDes.style.display = noneStr;
+  $dellCoreDes.style.display = noneStr;
+
+  $dellOverDSes.style.display = inlineStr;
+});
+
+$dellPer.addEventListener('mouseover', function () {
+  $dellOverview.style.display = noneStr;
+  $dellCoreDes.style.display = noneStr;
+  $dellOverDSes.style.display = noneStr;
+
+  $dellPerDes.style.display = inlineStr;
+});
 //#endregion
-
-
-
-//console.log($titles);

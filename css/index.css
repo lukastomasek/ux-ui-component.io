@@ -235,7 +235,16 @@ h2 {
 
 .asus-power,
 .asus-clock,
-.asus-per {
+.asus-per,
+.razer-power,
+.razer-clock,
+.razer-per,
+.msi-power,
+.msi-clock,
+.msi-per,
+.dell-power,
+.dell-clock,
+.dell-per {
   color: var(--green-col);
   font-family: var(--font_1);
   text-decoration: none;
@@ -244,10 +253,20 @@ h2 {
 
 .asus-power:hover,
 .asus-clock:hover,
-.asus-per:hover {
+.asus-per:hover,
+.razer-power:hover,
+.razer-clock:hover,
+.razer-per:hover,
+.msi-power:hover,
+.msi-clock:hover,
+.msi-per:hover,
+.dell-power:hover,
+.dell-clock:hover,
+.dell-per:hover {
   text-decoration: underline;
   color: white;
 }
+
 
 .learn-link {
   color: white;
@@ -372,7 +391,16 @@ hidden class
 
 .asus-core,
 .asus-overclock,
-.asus-performance {
+.asus-performance,
+.razer-core,
+.razer-overclock,
+.razer-performance,
+.msi-core,
+.msi-overclock,
+.msi-performance,
+.dell-core,
+.dell-overclock,
+.dell-performance {
   display: none;
   font-family: var(--font_1);
   font-size: .9em;
