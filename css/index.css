@@ -22,16 +22,8 @@ ul {
   list-style: none;
 }
 
-body {
-  color: black;
-  background-color: white;
-  padding: 0;
-  margin: 0;
-}
-
 main {
   margin-left: 5rem;
-
 }
 
 body {
@@ -85,7 +77,6 @@ footer {
   position: fixed;
   background-color: var(--bg-color);
   transition: 200ms ease;
-
 }
 
 .nav-items {
@@ -198,6 +189,7 @@ h2 {
   padding-right: 30em;
 }
 
+
 .loading {
   display: none;
   width: 75%;
@@ -266,7 +258,6 @@ h2 {
   text-decoration: underline;
   color: white;
 }
-
 
 .learn-link {
   color: white;
@@ -421,5 +412,31 @@ hidden class
 }
 
 
+@media only screen and (max-width: 768px) {
+  .top-list {
+    display: inline;
+  }
 
-@media only screen and(max-width:600px) {}
+  .products {
+    height: 50vh;
+    font-size: small;
+  }
+
+  .msi-prd,
+  .razer-prd,
+  .asus-prd,
+  .dell-prd {
+    padding: 2em;
+    padding-right: 0em;
+  }
+
+  .parent-footer {
+    display: none;
+  }
+
+  .copyright {
+    display: none;
+  }
+
+
+}
